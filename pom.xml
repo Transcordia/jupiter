@@ -13,7 +13,7 @@
     <url>http://jupiterlrs.org/</url>
 
     <prerequisites>
-        <maven>2.2.1</maven>
+        <maven>3.0</maven>
     </prerequisites>
 
     <properties>
@@ -106,7 +106,57 @@
                 </configuration>
             </plugin>
 
+            <!-- Uses the shade plugin to create an executable jar with all dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>jupiter-${project.version}</finalName>
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                            <dependencyReducedPomLocation>
+                                ${java.io.tmpdir}/dependency-reduced-pom.xml
+                            </dependencyReducedPomLocation>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>org.jupiterlrs.bootstrap.Jupiter</Main-Class>
+                                        <Build-Number>${project.version}</Build-Number>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>2.3</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <minimizeJar>true</minimizeJar>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

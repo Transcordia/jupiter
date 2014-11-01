@@ -2,12 +2,13 @@
 <configuration>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
-        </layout>
+        </encoder>
     </appender>
 
     <logger name="org.elasticsearch" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
 
     <root level="debug">
         <appender-ref ref="console"/>

@@ -4,5 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="elasticsearch" class="org.jupiterlrs.bootstrap.Elasticsearch" />
 
+    <!--<bean id="jupiter" class="org.jupiterlrs.bootstrap.Bootstrap">-->
+
+    <!--</bean>-->
 </beans>
