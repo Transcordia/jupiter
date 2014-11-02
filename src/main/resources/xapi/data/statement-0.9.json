@@ -1,0 +1,58 @@
+{
+    "id": "d1eec41f-1e93-4ed6-acbf-5c4bd0c24269",
+    "actor": {
+        "objectType": "Person",
+        "name": [
+            "Joe Schmoe",
+            "Joseph Schmoseph"
+        ],
+        "mbox": [
+            "mailto:joe@example.com"
+        ],
+        "openid": [
+            "http://openid.com/joe-schmoe"
+        ]
+    },
+    "verb": "completed",
+    "inProgress": false,
+    "object": {
+        "objectType": "Activity",
+        "id": "http://www.example.com/activities/001",
+        "definition": {
+            "name": {
+                "en-US": "Example Activity"
+            },
+            "type": "course"
+        }
+    },
+    "result": {
+        "completion": true
+    },
+    "context": {
+        "instructor": {
+            "objectType": "Person",
+            "lastName": [
+                "Dad"
+            ],
+            "firstName": [
+                "Joe's"
+            ],
+            "mbox": [
+                "mailto:joesdad@example.com"
+            ]
+        },
+        "contextActivities": {
+            "parent": {
+                "objectType": "Activity",
+                "id": "non-absolute-activity-id",
+                "definition": {
+                    "name": {
+                        "en-US": "Another Activity"
+                    }
+                }
+            }
+        }
+    },
+    "timestamp": "2012-06-01T19:09:13.245Z",
+    "stored": "2012-06-29T15:41:39.165Z"
+}
