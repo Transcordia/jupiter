@@ -19,9 +19,11 @@ We see the introduction of the new Caliper API as a great time to bring new tech
 
 * [Learning Locker](http://learninglocker.net/)   One of the first open source Learning Record Store (LRS) for the Experience API.
 * [Scorm Cloud](http://scorm.com/scorm-solved/scorm-cloud-features/) and [Scorm Engine](http://scorm.com/scorm-solved/scorm-engine/) are SCORM and Tin Can API compliant LRS's developed by Rustici. The commercial company behind both the SCORM standard and Experience API (aka Tin Can API).
+* [WaxLRS](http://www.saltbox.com/home.html)  A nice LRS platform offered as a pay-as-you-go service and a nice set of analytics. 
+* [Watershed LRS](http://site.watershedlrs.com/)  Another commercial LRS that seems to be focused on corporate training.
 
 There are no known implementations of a record store implementing the Caliper API. It is assumed that the IMS may sponsor or develop their own reference implementation when the specification is released. Of course, we submit Jupiter for their consideration.
-
+                                                 A
 ## About Jupiter
 
 Jupiter is the next generation, open source, learning record store. We are pushing the bounds of today's technology to build a highly scalable, fault-tolerant, cloud-based repository capable of ingesting both Caliper API and Experience API payloads.
