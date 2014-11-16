@@ -147,7 +147,7 @@ node.data: true
 # Path to directory where to store index data allocated for this node.
 #
 #path.data: /path/to/data
-path.data: /Users/jcook/Projects/Transcordia/jupiter/data
+path.data: ./data
 #
 # Can optionally include more than one location, causing data to be striped across
 # the locations (a la RAID 0) on a file level, favouring locations with most free
