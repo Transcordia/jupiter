@@ -44,11 +44,11 @@
 #
 # Allow this node to be eligible as a master node (enabled by default):
 #
-#node.master: true
+node.master: true
 #
 # Allow this node to store data (enabled by default):
 #
-#node.data: true
+node.data: true
 
 # You can exploit these settings to design advanced cluster topologies.
 #
@@ -147,6 +147,7 @@
 # Path to directory where to store index data allocated for this node.
 #
 #path.data: /path/to/data
+path.data: /Users/jcook/Projects/Transcordia/jupiter/data
 #
 # Can optionally include more than one location, causing data to be striped across
 # the locations (a la RAID 0) on a file level, favouring locations with most free
@@ -298,14 +299,14 @@
 # and master node is elected. Multicast discovery is the default.
 
 # Set to ensure a node sees N other master eligible nodes to be considered
-# operational within the cluster. This should be set to a quorum/majority of 
+# operational within the cluster. This should be set to a quorum/majority of
 # the master-eligible nodes in the cluster.
 #
 #discovery.zen.minimum_master_nodes: 1
 
 # The default discovery timeout is 30s. A bit too long to wait for a development environment.
 
-discovery.initial_state_timeout: 5s
+#discovery.initial_state_timeout: 5s
 
 # Set the time to wait for ping responses from other nodes when discovering.
 # Set this option to a higher value on a slow or congested network

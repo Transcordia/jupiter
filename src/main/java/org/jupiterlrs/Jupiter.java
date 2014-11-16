@@ -1,11 +1,11 @@
-package org.jupiterlrs.bootstrap;
+package org.jupiterlrs;
 
 import java.util.concurrent.CountDownLatch;
 
+import org.elasticsearch.client.Client;
+import org.jupiterlrs.client.JupiterClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Jupiter {
 
@@ -13,15 +13,15 @@ public class Jupiter {
 
     private final CountDownLatch keepAliveLatch = new CountDownLatch(1);
 
-    private Elasticsearch es;
+    private JupiterClient jupiterClient;
 
-    public Jupiter() {
-        final AbstractApplicationContext ctx = new ClassPathXmlApplicationContext(new String[]{
-                "services.xml"
-        });
-        ctx.registerShutdownHook();
-
+    public Jupiter(Client esClient) {
+        jupiterClient = new JupiterClient(esClient);
         keepAlive();
+    }
+
+    public JupiterClient getClient() {
+        return jupiterClient;
     }
 
     private void keepAlive() {
@@ -51,11 +51,7 @@ public class Jupiter {
     }
 
 
-    public void close(String[] args) {
+    public void close() {
         keepAliveLatch.countDown();
-    }
-
-    public static void main(String[] args) {
-        new Jupiter();
     }
 }

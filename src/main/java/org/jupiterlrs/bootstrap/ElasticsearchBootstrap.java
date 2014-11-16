@@ -1,27 +1,22 @@
 package org.jupiterlrs.bootstrap;
 
 import org.elasticsearch.client.Client;
-import org.elasticsearch.common.settings.ImmutableSettings;
-import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.node.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.Lifecycle;
 
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
-public class Elasticsearch implements InitializingBean, DisposableBean {
+public class ElasticsearchBootstrap implements InitializingBean, DisposableBean {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Elasticsearch.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ElasticsearchBootstrap.class);
 
-    private final Node node;
+    private Node node;
     private Client client;
 
-    public Elasticsearch() {
-        final Settings settings = ImmutableSettings.settingsBuilder().build();
-        node = nodeBuilder().client(true).settings(settings).build();
+    public ElasticsearchBootstrap() {
     }
 
     public Client getClient() {
@@ -30,12 +25,13 @@ public class Elasticsearch implements InitializingBean, DisposableBean {
 
     public void start() {
         LOG.info("Elasticsearch starting");
+        node = nodeBuilder().node();
         node.start();
         client = node.client();
         LOG.info("Elasticsearch started");
     }
 
-    public void stop()   {
+    public void stop() {
         LOG.info("Elasticsearch shutting down");
         if (client != null) client.close();
         if (isRunning()) node.close();
