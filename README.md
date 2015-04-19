@@ -4,7 +4,7 @@ An open source Learning Record Store (LRS) supporting the xAPI and Caliper speci
 
 ## Background
 
-The new Caliper APIs for defining and storing learning activities are scheduled for a 2014 delivery. This is a specification being developed by the [IMS](http://www.imsglobal.org/) who have a proven history of working with some of the largest educational entities to develop interoperability standards that tend to carry a lot of weight in the industry.
+The new Caliper APIs for defining and storing learning activities are scheduled for a 2015 delivery. This is a specification being developed by the [IMS](http://www.imsglobal.org/) who have a proven history of working with some of the largest educational entities to develop interoperability standards that tend to carry a lot of weight in the industry.
 
 In some ways the Caliper API is a more formalized approach to defining a granular learning activity specifically for the education sector. The goals of the effort are laid out in the [Caliper Analytics](http://www.imsglobal.org/caliper/index.html) web page:
 
@@ -23,7 +23,7 @@ We see the introduction of the new Caliper API as a great time to bring new tech
 * [Watershed LRS](http://site.watershedlrs.com/)  Another commercial LRS that seems to be focused on corporate training.
 
 There are no known implementations of a record store implementing the Caliper API. It is assumed that the IMS may sponsor or develop their own reference implementation when the specification is released. Of course, we submit Jupiter for their consideration.
-                                                 A
+                                                 
 ## About Jupiter
 
 Jupiter is the next generation, open source, learning record store. We are pushing the bounds of today's technology to build a highly scalable, fault-tolerant, cloud-based repository capable of ingesting both Caliper API and Experience API payloads.
